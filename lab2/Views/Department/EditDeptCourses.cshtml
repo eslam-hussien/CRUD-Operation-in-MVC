@@ -1,0 +1,30 @@
+﻿@model EditDeptCoursesViewModel
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>EditDeptCourses</title>
+	<link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<link href="/css/site.css" rel="stylesheet" />
+</head>
+<body>
+	<h1 class="alert alert-primary">
+		@Model.Department.DeptName
+	</h1>
+	<form method="post">
+		<label>Courses In Department</label>
+		<select name="coursestoremove" asp-items="@Model.CourseInDept" multiple>
+		</select><br />
+
+		<label>Courses Not in Department</label>
+		<select name="couresetoadd" asp-items="@Model.CourseNotInDept" multiple>
+		</select><br />
+		<input type="submit" value="edit" class="btn btn-secondary" />
+	</form>
+</body>
+</html>

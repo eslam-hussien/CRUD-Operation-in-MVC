@@ -1,0 +1,46 @@
+﻿@model IEnumerable<lab2.Models.Department>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/css/site.css" rel="stylesheet" />
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered ">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DeptName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptName)
+            </td>
+            <td>
+                <a asp-action="EditDeptCourses" asp-route-id="@item.DeptId">Courses Edit</a>
+                <a asp-action="Edit" asp-route-id="@item.DeptId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DeptId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DeptId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

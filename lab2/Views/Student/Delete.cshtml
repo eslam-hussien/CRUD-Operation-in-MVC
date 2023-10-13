@@ -1,0 +1,16 @@
+﻿@model Student
+@{
+	Layout = "_Layout2";
+	ViewBag.Title = "Student Delete";
+
+}
+
+
+	<h1 class="alert alert-danger">
+		Do u want 2 delete student
+		@Model.Name : @Model.Age @Model.Department.DeptName
+	</h1>btn-d
+	<form  method="post">
+		<input type="hidden" asp-for="Id" />
+		<input type="submit" value="delete" class="btn btn-danger "/>
+	</form>

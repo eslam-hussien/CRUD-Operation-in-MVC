@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Student>
+@{
+	Layout = "_Layout2";
+	ViewBag.Title = "Student List";
+}
+
+
+
+	<a asp-action="create" class="btn btn-info">Create</a>
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Department</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Id</td>
+					<td>@item.Name</td>
+					<td>@item.Age</td>
+					<td>@item.Department.DeptName</td>
+					<td>
+
+						<a asp-action="details" asp-controller="student" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+						<a href="/student/delete/@item.Id" onclick="return confirm('are you sure')" class="btn btn-danger">Delete</a>
+						<a asp-action="edit" asp-controller="student" asp-route-id="@item.Id" class="btn btn-dark">Edit</a>
+
+					</td>
+
+				</tr>
+			}
+		</tbody>
+	</table>
